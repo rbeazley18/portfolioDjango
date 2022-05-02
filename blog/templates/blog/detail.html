@@ -1,0 +1,137 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block head %}
+<title>Posts</title>
+{% endblock %}
+
+
+{% block body %}
+
+<body>
+    <style>
+        .container {
+            background-color: rgb(179, 179, 179);
+        }
+
+    </style>
+
+    <div class="container mt-2 pb-2 col-md-10">
+        <div class="row">
+            <div class="card col-md-11 mb-2 ml-4 mt-3 left top">
+                <div class="card-body">
+                    <h2 class="card-title">{{ blogpost.title }}</h2>
+                    <h6 class="card-subtitle mb-3 text-muted">{{ blogpost.author.first_name }} {{ blogpost.author.last_name }} | <a href="{% url 'blog:category' blogpost.category|slugify %}">{{ blogpost.category }}</a> |
+                        {% if blogpost.pub_date == blogpost.updated_on %}
+                        Created: {{ blogpost.pub_date }}
+                        {% else %}
+                        Created: {{ blogpost.pub_date }}
+                        (Edited: {{ blogpost.updated_on }})
+                        {% endif %}
+
+                        {% if user.is_authenticated %}
+                        {% if user.id == blogpost.author.id %}
+                        <a href="{% url 'blog:update' blogpost.id  %}">Edit</a>
+                        <a href="{% url 'blog:delete' blogpost.id  %}">Delete</a>
+                        {% endif %}
+                        {% endif %}
+                    </h6>
+                    {% if blogpost.header_image %}
+                    <img src="{{ blogpost.header_image.url }}" class="img-fluid rounded" alt="Responsive image">
+                    {% endif %}
+                    <p class="card-text ">{{ blogpost.blogpost_text | safe }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card col-md-8 mb-4 ml-4 mt-3">
+                <div class="card-body">
+                    <h3>Comments:</h3>
+                    {% if not blogpost.comments.all %}
+                    No comments yet... <a href="{% url 'blog:comment' blogpost.pk %}">Add One</a>
+                    {% else %}
+                    <a href="{% url 'blog:comment' blogpost.pk %}">Add Comment</a>
+                    <hr>
+                    
+                    {% for comment in blogpost.comments.all %}
+                    <h6 class="card-subtitle mb-2 text-muted">{{ comment.name }} | {{ comment.created_on }}</h6>
+                    {{ comment.body|safe }}
+                    <hr>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-secondary mb-2" type="button" onclick="location.href='{% url "blog:index" %}'">Back</button>
+        </div>
+        <hr>
+        <div>
+            <form action="{% url 'blog:like_post' blogpost.pk %}" method="POST">
+                {% csrf_token %}
+                {% if user.is_authenticated %}
+                {% if liked %}
+                {% if total_likes == 1 %}
+                <button type="submit" name="blogpost_id" value="{{ blogpost.id }}"
+                    class="btn btn-danger btn-sm mb-3">Dislike <span class="badge badge-light"> {{ total_likes }}
+                        like</span><span class="sr-only">Total Likes</span></button>
+                {% else %}
+                <button type="submit" name="blogpost_id" value="{{ blogpost.id }}"
+                    class="btn btn-danger btn-sm mb-3">Dislike <span class="badge badge-light"> {{ total_likes }}
+                        likes</span><span class="sr-only">Total Likes</span></button>
+                {% endif %}
+                {% else %}
+                {% if total_likes == 1 %}
+                <button type="submit" name="blogpost_id" value="{{ blogpost.id }}"
+                    class="btn btn-primary btn-sm mb-3">Like <span class="badge badge-light">{{ total_likes }}
+                        like</span><span class="sr-only">Total Likes</span></button>
+                {% else %}
+                <button type="submit" name="blogpost_id" value="{{ blogpost.id }}"
+                    class="btn btn-primary btn-sm mb-3">Like <span class="badge badge-light">{{ total_likes }}
+                        likes</span><span class="sr-only">Total Likes</span></button>
+                {% endif %}
+
+                {% endif %}
+                {% else %}
+                <div class="container mb-4 ml-4 mt-4">
+                    <h3>You are not logged in.</h3>
+                </div>
+                {% endif %}
+            </form>
+        </div>
+        <div class="card mx-2 mb-3 mt-2 bg-light" style="max-width: 540px;" id="profile">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <div>
+                        {% if blogpost.author.profile.profile_pic %}
+                        <img class="img-fluid rounded-start" src="{{ blogpost.author.profile.profile_pic.url }}" alt="Card image cap">
+                        {% else %}
+                        <img class="img-fluid rounded-start" src="{% static 'blog\images\defaultprofilepic.png' %}"
+                            alt="Card image cap">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ blogpost.author.first_name }} {{ blogpost.author.last_name }}</h5>
+                        <p class="small text-muted">
+                            <a href="{% url 'members:show_profile_page' blogpost.author.profile.id %}">Profile</a>
+                            {% if blogpost.author.profile.facebook_url %}
+                            | <a href="{{ blogpost.author.profile.facebook_url }}">Facebook</a>
+                            {% endif %}
+                            {% if blogpost.author.profile.instagram_url %}
+                            | <a href="{{ blogpost.author.profile.instagram_url }}">Instagram</a>
+                            {% endif %}
+                            {% if blogpost.author.profile.twitter_url %}
+                            | <a href="{{ blogpost.author.profile.twitter_url }}">Twitter</a>
+                            {% endif %}
+                        </p>
+                        <p class="card-text">{{ blogpost.author.profile.bio }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

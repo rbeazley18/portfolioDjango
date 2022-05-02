@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}
+
+{% block head %}
+<title>Login</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="container ml-4 mt-4">
+    <h1>Login</h1>
+    <br>
+    <div class="form-group">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputUsername">Username</label>
+                <input type="text" name="username" class="form-control" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="password" class="form-control" placeholder="Enter password">
+            </div>
+            <p class="form-text text-muted mt-4">Sign in or register <a href="{% url 'members:register' %}">here</a>.</p>
+            <button class="btn btn-primary mt-2">Login</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+
+{% block head %}
+<title>Blog Categories</title>
+{% endblock %}
+
+
+{% block body %}
+
+<body>
+    <style>
+        .container {
+            background-color: rgb(179, 179, 179);
+        }
+        
+    </style>
+
+    <div class="container mt-2 col-md-10">
+        <div class="row">
+            <div class="card col-md-11 mb-2 ml-4 mt-3 left top">
+                <div class="card-body">
+                    <h2 class="card-title">Blog Categories</h2>
+                    {% for item in cat_menu_list %}
+                    <div class="list-group col-md-8">
+                        <a class="list-group-item list-group-item-action" href="{% url 'blog:category' item|slugify %}">{{ item }}</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

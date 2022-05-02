@@ -1,0 +1,66 @@
+{% extends 'blog/base.html' %}
+
+{% block head %}
+<title>My Blog</title>
+{% endblock %}
+
+
+{% block body %}
+
+<body>
+    <style>
+        .masthead {
+            background-color: rgb(3, 90, 161);
+        }
+
+        .card {
+            box-shadow: 4px 6px 4px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            background-color: rgb(185, 180, 180);
+        }
+    </style>
+    <header class="masthead">
+        <div class="p-4 p-md-5 mb-4 text-white rounded">
+            <div class="px-2">
+                <h1 class="display-3 fst-italic">My First Blog</h1>
+                <p class="lead">I created this blog using Django. Check out some of the recent posts.</p>
+            </div>
+        </div>
+    </header>
+    <div class="container rounded mb-3">
+        <div class="row">
+            <div class="col-md-12 mt-3 left">
+                {% for blogpost in latest_blogpost_list %}
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ blogpost.title }}</h2>
+                        <h6 class="card-subtitle mb-3 text-muted">{{ blogpost.author.first_name }} {{ blogpost.author.last_name }} | <a href="{% url 'blog:category' blogpost.category|slugify %}">{{ blogpost.category }}</a> | 
+                            {% if blogpost.pub_date == blogpost.updated_on %}
+                            Created: {{ blogpost.pub_date }}
+                            {% else %}
+                            Created: {{ blogpost.pub_date }} 
+                            (Edited: {{ blogpost.updated_on }})
+                            {% endif %}
+
+                            {% if user.is_authenticated %}
+                                {% if user.id == blogpost.author.id %}
+                            <a href="{% url 'blog:update' blogpost.id  %}">Edit</a>
+                            <a href="{% url 'blog:delete' blogpost.id  %}">Delete</a>
+                                {% endif %}
+                            {% endif %}
+                        </h6>
+                        <p class="card-text">{{ blogpost.snippet }}</p>
+                        <!--<p class="card-text">{{ blogpost.blogpost_text|slice:":120"|safe }}</p>-->
+                        <hr>
+                        <a href="{% url 'blog:detail' blogpost.id %}">Read More &raquo;</a>
+                    </div>
+                </div>
+                {% endfor %}
+                <a class="btn btn-primary btn-large mb-3" href="{% url 'blog:new_post' %}" role="button">New Post</a>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block head %}
+<title>My Blog</title>
+{% endblock %}
+
+
+{% block body %}
+
+<body>
+    <style>
+        .masthead {
+            background-color: rgb(3, 90, 161);
+        }
+
+        .container {
+            background-color: rgb(179, 179, 179);
+        }
+    </style>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mt-3 left">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title d-flex justify-content-center">My Profile Page</h2>
+                        <br>
+                        <div class="card" style="width: 100%;" id="profile">
+                            <div class="row justify-items-start no-gutters">
+                                <div class="col-3">
+                                    <div>
+                                        {% if page_user.profile_pic %}
+                                        <img class="card-img" src="{{ page_user.profile_pic.url }}"
+                                            alt="Card image cap">
+                                        {% else %}
+                                        <img class="card-img" src="{% static 'blog\images\defaultprofilepic.png' %}"
+                                            alt="Card image cap">
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ page_user.user.first_name }} {{ page_user.user.last_name }}</h5>
+                                        <p class="small text-muted">
+                                            {% if page_user.facebook_url %}
+                                            <a href="{{ page_user.facebook_url }}">Facebook</a> |
+                                            {% endif %}
+                                            {% if page_user.instagram_url %}
+                                            <a href="{{ page_user.instagram_url }}">Instagram</a> |
+                                            {% endif %}
+                                            {% if page_user.twitter_url %}
+                                            <a href="{{ page_user.twitter_url }}">Twitter</a>
+                                            {% endif %}
+                                        </p>
+                                        <p class="card-text">{{ page_user.bio }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

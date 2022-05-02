@@ -1,0 +1,36 @@
+{% extends 'blog/base.html' %}
+
+{% block head %}
+<title>Update Post</title>
+{% endblock %}
+
+{% block body %}
+
+{% if user.is_authenticated %}
+    {% if user.id == blogpost.author.id %}
+    <div class="container ml-4 mt-2">
+        <h1>Edit Post</h1>
+        <br>
+        <div class="form-group">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form.media }}
+                {{ form.as_p }}
+                <button class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    {% else %}
+    <div class="container mb-4 ml-4 mt-4">
+        <h3>You are not the correct user.</h3>
+    </div>
+    {% endif %}
+
+{% else %}
+<div class="container mb-4 ml-4 mt-4">
+    <h3>You are not logged in.</h3>
+</div>
+{% endif %}
+
+
+{% endblock %}

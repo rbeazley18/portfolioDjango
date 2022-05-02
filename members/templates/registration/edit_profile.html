@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+{% block head %}
+<title>Edit Profile</title>
+{% endblock %}
+
+{% block body %}
+
+
+<div class="container ml-4 mt-4">
+    <h1>Change Login</h1>
+    <br>
+    <div class="form-group">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-secondary">Update Profile</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

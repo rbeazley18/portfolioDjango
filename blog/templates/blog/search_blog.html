@@ -1,0 +1,40 @@
+{% extends 'blog/base.html' %}
+
+{% block head %}
+<title>Search Results</title>
+{% endblock %}
+
+{% block body %}
+
+<body>
+    <style>
+        .masthead {
+            background-color: rgb(3, 90, 161);
+        }
+
+        .container {
+            background-color: rgb(179, 179, 179);
+        }
+    </style>
+    <div class="container mt-2 col-md-10">
+        <div class="row">
+            <div class="card col-md-11 mb-2 ml-4 mt-3 left top">
+                <div class="card-body">
+                    {% if searched %}
+                    <h2 class="card-title mb-4">You searched: <em>{{ searched }}</em></h2>
+                    {% for blog in blogs %}
+                    <div class="list-group col-md-6">
+                        <a class="list-group-item list-group-item-action" href="{% url 'blog:detail' blog.id %}">{{ blog }}</a>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <h2>You submitted a blank search.</h2>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+{% endblock %}
