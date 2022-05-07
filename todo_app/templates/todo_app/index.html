@@ -1,0 +1,25 @@
+{% extends "todo_app/base.html" %}
+
+{% block content %}
+<!--index.html-->
+
+<div class="row justify-content-center">
+    {% for todolist in todolist_list %}
+    <div class="list-group col-md-8">
+        <a class="list-group-item" href="{% url 'todo_app:list' todolist.id %}" aria-current="true">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ todolist.title }}</h5>
+                <small></small>
+            </div>
+            <p class="mb-1"></p>
+            <small class="text-muted">Click to view list</small>
+        </a>
+    </div>
+
+    {% endfor %}
+</div>
+<div class="text-center mt-3">
+    <a class="btn btn-primary" href='{% url "todo_app:list-add" %}' role="button">Add a new list</a>
+</div>
+
+{% endblock %}

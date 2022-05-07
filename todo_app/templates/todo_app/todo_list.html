@@ -1,0 +1,32 @@
+{% extends "todo_app/base.html" %}
+
+{% block head %}
+<title>{{ todo_list.title }}</title>
+{% endblock %}
+
+{% block content %}
+
+<body>
+    <div class="row justify-content-center">
+        <div class="card col-md-8">
+            <div class="card-body">
+                <div class="card-title">
+                    <h2 class="">{{ todo_list.title }}:</h2>
+                </div>
+                <div class="list-group list-group-flush">
+                    {% for todo in todoitems_list %}
+                    <a class="list-group-item lead" href='{% url "todo_app:item-update" todo_list.id todo.id %}'>-{{ todo.title }} (Due {{ todo.due_date|date:"l, F j"}})</a>
+                    {% empty %}
+                    <p>There are no to-do items in this list.</p>
+                    {% endfor %}
+                </div>
+                <div class="mt-3">
+                    <a class="btn btn-primary" href='{% url "todo_app:item-add" todo_list.id %}'>Add a new item</a>
+                    <a class="btn btn-danger" href='{% url "todo_app:list-delete" todo_list.id %}'>Delete this list</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+{% endblock %}

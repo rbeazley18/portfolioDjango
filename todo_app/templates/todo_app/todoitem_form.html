@@ -1,0 +1,20 @@
+{% extends "todo_app/base.html" %}
+
+{% block content %}
+
+<div class="row justify-content-center mb-5">
+    <div class="col-md-8">
+        <h3 class="mb-3">{{ title }}</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-primary">Submit</button>
+            <a class="btn btn-secondary" href='{% url "todo_app:list" todo_list.id %}'>Cancel</a>
+            {% if object %}
+            <a class="btn btn-danger" href='{% url "todo_app:item-delete" todo_list.id object.id %}'>Delete this
+                item</a>
+            {% endif %}
+        </form>
+    </div>
+</div>
+{% endblock %}

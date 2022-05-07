@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'members',
     'portfolio',
+    'todo_app',
     'ckeditor'
 ]
 

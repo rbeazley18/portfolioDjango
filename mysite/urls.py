@@ -24,4 +24,5 @@ urlpatterns = [
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
     path('portfolio/', include('portfolio.urls')),
+    path('todolist/', include('todo_app.urls'))
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
