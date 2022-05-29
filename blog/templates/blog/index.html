@@ -18,7 +18,7 @@
         }
 
         .container {
-            background-color: rgb(185, 180, 180);
+            background-color: rgba(89, 91, 92, 0.282);
         }
     </style>
     <header class="masthead">
@@ -51,14 +51,14 @@
                                 {% endif %}
                             {% endif %}
                         </h6>
-                        <p class="card-text">{{ blogpost.snippet }}</p>
+                        <p class="card-text lead">{{ blogpost.snippet }}</p>
                         <!--<p class="card-text">{{ blogpost.blogpost_text|slice:":120"|safe }}</p>-->
                         <hr>
-                        <a href="{% url 'blog:detail' blogpost.id %}">Read More &raquo;</a>
+                        <a class="btn btn-outline-primary btn-sm" href="{% url 'blog:detail' blogpost.id %}">Read More &raquo;</a>
                     </div>
                 </div>
                 {% endfor %}
-                <a class="btn btn-primary btn-large mb-3" href="{% url 'blog:new_post' %}" role="button">New Post</a>
+                <a class="btn btn-primary mb-3" href="{% url 'blog:new_post' %}" role="button">New Post</a>
             </div>
         </div>
     </div>

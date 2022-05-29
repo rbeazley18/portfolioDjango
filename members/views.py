@@ -54,8 +54,8 @@ class UserRegisterView(generic.CreateView):
 
 
 class UserEditView(generic.UpdateView):
-    form_class = EditProfileForm
-    template_name = 'registration/edit_profile.html'
+    form_class = EditLoginForm
+    template_name = 'registration/edit_login.html'
 
     success_url = reverse_lazy('blog:index')
 

@@ -1,4 +1,5 @@
 {% extends 'portfolio/base.html' %}
+{% load static %}
 
 {% block head %}
 <title>My Portfolio</title>
@@ -21,6 +22,11 @@
             background-color: rgb(105, 179, 108);
             border-color: rgb(105, 179, 108);
         }
+
+        .card-footer {
+            background: transparent;
+            border-top: 0px;
+        }
     </style>
     <header>
         <div class="row justify-content-center">
@@ -36,27 +42,32 @@
         </div>
     </header>
 
-    {% for project in project_list %}
-    <div class="container mt-4 mb-4">
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                <div class="card mb-1 mt-1 mx-2 rounded">
-                    <div class="card-body">
-                        <h2 class="card-title">{{ project.title }}</h2>
-                        <h6 class="card-subtitle mb-3 text-muted">{{ project.author }} | Uploaded: {{ project.pub_date }}
-                        </h6>
-                        {% if portfolio.header_image %}
-                        <img src="{{ project.header_image.url }}" class="img-fluid rounded" alt="Responsive image">
-                        {% endif %}
-                        <p class="card-text">{{ project.description | safe }}</p>
-                        <hr>
-                        <a class="btn btn-success btn-sm" href="{{ project.website_url }}" id="site_link"
-                            role="button">{{ project.title }}</a>
-                        <a class="btn btn-secondary btn-sm" href="#" role="button">View Code in Github</a>
+    <div class="container mt-4 rounded">
+        <div class="row">
+            {% for project in project_list %}
+            <div class="col-md-4 py-3 ">
+                <div class="card h-100 border rounded">
+                    {% if project.header_image %}
+                    <img class="card-image-top rounded-top" style="max-width:100%; height:200px"
+                        src="{{ project.header_image.url }}">
+                    {% else %}
+                    <img class="card-image-top rounded-top" style="max-width:100%; height:200px"
+                        src="{% static 'portfolio\images\defaultprofilepic.png' %}">
+                    {% endif %}
+                    <div class="card-body border-top d-flex flex-column justify-content-between">
+                        <div>
+                            <h4 class="card-title">{{ project.title }}</h4>
+                            <p class="lead card-text">{{ project.description | safe }}</p>
+                        </div>
+                        <div class="mt-2">
+                            <a class="btn btn-success btn-sm" href="{% url 'portfolio:detail' project.id %}"
+                                id="site_link" role="button">Read More &raquo;</a>
+                        </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
-    {% endfor %}
-{% endblock %}
+
+    {% endblock %}

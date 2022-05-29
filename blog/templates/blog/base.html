@@ -57,16 +57,16 @@
                     <form class="form-inline my-2 ml-4 my-md-0" method="POST" action="{% url 'blog:search_blog' %}">
                         {% csrf_token %}
                         <input class="form-control" type="search" placeholder="Search Blog..." name="searched">
-                        <button class="btn btn-outline-primary text-white my-2 mx-1 my-sm-0" type="submit">Search &raquo;</button>
+                        <button class="btn btn-primary text-white my-2 mx-1 my-sm-0" type="submit">Search &raquo;</button>
                     </form>
                 </li>
             </ul>
             {% if user.is_authenticated %}
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.first_name }}</a>
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.first_name }}</a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'members:edit_profile' %}">Change Login</a>
+                        <a class="dropdown-item" href="{% url 'members:edit_login' %}">Change Login</a>
                         {% if user.profile.id %}
                         <a class="dropdown-item" href="{% url 'members:edit_profile_page' user.profile.id %}">Edit Profile Page</a>
                         <a class="dropdown-item" href="{% url 'members:show_profile_page' user.profile.id %}">View Profile</a>

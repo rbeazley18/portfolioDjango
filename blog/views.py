@@ -15,7 +15,7 @@ class IndexView(generic.ListView):
     context_object_name = 'latest_blogpost_list'
 
     def get_queryset(self):
-        return BlogPost.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')
+        return BlogPost.objects.filter(status=1).order_by('-pub_date')
 
     def get_context_data(self, *args, **kwargs): 
         cat_menu = Category.objects.all()

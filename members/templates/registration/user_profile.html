@@ -10,50 +10,46 @@
 
 <body>
     <style>
-        .masthead {
-            background-color: rgb(3, 90, 161);
+        #profile {
+            box-shadow: 4px 6px 4px 2px rgba(0, 0, 0, 0.1);
         }
 
-        .container {
-            background-color: rgb(179, 179, 179);
-        }
+        
     </style>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 mt-3 left">
-                <div class="card mb-4">
+    <div class="container-fluid my-3">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card border-primary my-2" id="profile">
                     <div class="card-body">
-                        <h2 class="card-title d-flex justify-content-center">My Profile Page</h2>
-                        <br>
-                        <div class="card" style="width: 100%;" id="profile">
-                            <div class="row justify-items-start no-gutters">
-                                <div class="col-3">
-                                    <div>
-                                        {% if page_user.profile_pic %}
-                                        <img class="card-img" src="{{ page_user.profile_pic.url }}"
-                                            alt="Card image cap">
-                                        {% else %}
-                                        <img class="card-img" src="{% static 'blog\images\defaultprofilepic.png' %}"
-                                            alt="Card image cap">
-                                        {% endif %}
-                                    </div>
+                        <div class="row justify-items-start">
+                            <div class="col-5">
+                                <div class="">
+                                    {% if page_user.profile_pic %}
+                                    <img class="card-img rounded" src="{{ page_user.profile_pic.url }}" alt="Card image cap">
+                                    {% else %}
+                                    <img class="card-img rounded" src="{% static 'blog\images\defaultprofilepic.png' %}"
+                                        alt="Card image cap">
+                                    {% endif %}
                                 </div>
-                                <div class="col">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ page_user.user.first_name }} {{ page_user.user.last_name }}</h5>
-                                        <p class="small text-muted">
-                                            {% if page_user.facebook_url %}
-                                            <a href="{{ page_user.facebook_url }}">Facebook</a> |
-                                            {% endif %}
-                                            {% if page_user.instagram_url %}
-                                            <a href="{{ page_user.instagram_url }}">Instagram</a> |
-                                            {% endif %}
-                                            {% if page_user.twitter_url %}
-                                            <a href="{{ page_user.twitter_url }}">Twitter</a>
-                                            {% endif %}
-                                        </p>
-                                        <p class="card-text">{{ page_user.bio }}</p>
-                                    </div>
+                            </div>
+                            <div class="col-7">
+                                <div class="text-left" id="username">
+                                    <h2 class="mt-2">{{ page_user.user.first_name }} {{ page_user.user.last_name }}</h2>
+                                </div>
+                                <p class="card-text my-3 text-left">{{ page_user.bio }}</p>
+                                <div class="text-left mt-1">
+                                    {% if page_user.facebook_url %}
+                                    <a class="btn btn-outline-primary btn-sm" href="{{ page_user.facebook_url }}">Facebook</a>
+                                    {% endif %}
+                                    {% if page_user.instagram_url %}
+                                    <a class="btn btn-outline-primary btn-sm" href="{{ page_user.instagram_url }}">Instagram</a>
+                                    {% endif %}
+                                    {% if page_user.twitter_url %}
+                                    <a class="btn btn-outline-primary btn-sm" href="{{ page_user.twitter_url }}">Twitter</a>
+                                    {% endif %}
+                                    {% if page_user.linkedin_url %}
+                                    <a class="btn btn-outline-primary btn-sm" href="{{ page_user.linkedin_url }}">LinkedIn</a>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -62,5 +58,7 @@
             </div>
         </div>
     </div>
+    </div>
+
 </body>
 {% endblock %}

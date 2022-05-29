@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-<title>Posts</title>
+<title>{{ projects.title }}</title>
 {% endblock %}
 
 
@@ -10,35 +10,49 @@
 
 <body>
     <style>
-        .container {
-            background-color: rgba(54, 116, 52, 0.903);
-        }
-
-        .card {
-            width: 100%;
-            height: 15vw;
-            object-fit: cover;
+        #site_link {
+            background-color: rgb(105, 179, 108);
+            border-color: rgb(105, 179, 108);
         }
     </style>
-
-    <div class="container mt-4">
+    {% if projects.header_image %}
+    <div class="container-fluid p-4">
         <div class="row">
-            <div class="col-md-12">
-                <div class="card mb-3 mt-3">
-                    <div class="card-body">
-                        <h2 class="card-title">{{ projects.title }}</h2>
-                        <h6 class="card-subtitle mb-3 text-muted">{{ projects.author }} |
-                            Uploaded: {{ projects.pub_date }}
-                        </h6>
-                        {% if portfolio.header_image %}
-                        <img src="{{ projects.header_image.url }}" class="img-fluid rounded" alt="Responsive image">
-                        {% endif %}
-                        <p class="card-text ">{{ projects.description | safe }}</p>
-                    </div>
-                </div>
+
+            <div class="col-md-8 border rounded p-2">
+                <img src="{{ projects.header_image.url }}" width="100%" class="img-fluid rounded"
+                    alt="Responsive image">
+            </div>
+
+            <div class="col-md-4 ">
+                <h2 class="">{{ projects.title }}</h2>
+                <p class="text-muted">{{ projects.author }} |
+                    Uploaded: {{ projects.pub_date }}
+                </p>
+                <p class="">{{ projects.description | safe }}</p>
+                <a class="btn btn-success" href="{{ projects.website_url }}" id="site_link" role="button">Go To Site
+                    &raquo;</a>
+                <a class="btn btn-secondary" href="{% url 'portfolio:index' %}" role="button">Back</a>
             </div>
         </div>
     </div>
+    {% else %}
+    <div class="container-fluid p-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="">{{ projects.title }}</h2>
+                <p class="text-muted">{{ projects.author }} |
+                    Uploaded: {{ projects.pub_date }}
+                </p>
+                <p class="">{{ projects.description | safe }}</p>
+                <a class="btn btn-success" href="{{ projects.website_url }}" id="site_link" role="button">Go To
+                    Site
+                    &raquo;</a>
+                <a class="btn btn-secondary" href="{% url 'portfolio:index' %}" role="button">Back</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 </body>
 
 {% endblock %}

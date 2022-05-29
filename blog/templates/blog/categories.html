@@ -11,23 +11,30 @@
         .masthead {
             background-color: rgb(3, 90, 161);
         }
+
         .container {
             background-color: rgb(179, 179, 179);
+        }
+
+        .card {
+            box-shadow: 4px 6px 4px 2px rgba(0, 0, 0, 0.1);
         }
     </style>
 
     {% if category_posts %}
     <header class="masthead">
-        <div class="p-4 p-md-5 mb-4 text-white rounded">
+        <div class="p-4 p-md-5 mb-3 text-white rounded">
             <div class="px-2">
                 <h1 class="display-4">{{ cats }} Category</h1>
             </div>
         </div>
     </header>
-    <div class="container">
+    <div class="container rounded mb-3">
         <div class="row">
             <div class="col-md-12 mt-3 left">
+
                 {% for blogpost in category_posts %}
+                {% if blogpost.status == 1 %}
                 <div class="card mb-4">
                     <div class="card-body">
                         <h2 class="card-title">{{ blogpost.title }}</h2>
@@ -35,7 +42,7 @@
                             {% if blogpost.pub_date == blogpost.updated_on %}
                             Created: {{ blogpost.pub_date }}
                             {% else %}
-                            Created: {{ blogpost.pub_date }} 
+                            Created: {{ blogpost.pub_date }}
                             (Updated: {{ blogpost.updated_on }})
                             {% endif %}
                             {% if user.is_authenticated %}
@@ -43,19 +50,35 @@
                             <a href="{% url 'blog:delete' blogpost.id  %}">Delete</a>
                             {% endif %}
                         </h6>
-                        <p class="card-text">{{ blogpost.blogpost_text|slice:":120" }}</p>
+                        <p class="card-text">{{ blogpost.blogpost_text|slice:":120"|safe }}</p>
                         <a href="{% url 'blog:detail' blogpost.id  %}">Read More &raquo;</a>
                     </div>
                 </div>
-                {% endfor %}
                 {% else %}
-                <div class="mb-4 ml-4 mt-4">
-                    <h3>This category does not have any posts.</h3>
-                </div>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title"><em>Post Pending Approval</em></h2>
+                        <h6 class="card-subtitle mb-3 text-muted">{{ blogpost.author }} | {{ blogpost.category }} |
+                            {% if blogpost.pub_date == blogpost.updated_on %}
+                            Created: {{ blogpost.pub_date }}
+                            {% else %}
+                            Created: {{ blogpost.pub_date }}
+                            (Updated: {{ blogpost.updated_on }})
+                            {% endif %}
+                        </h6>
+                    </div>
+                </div>   
+                {% endif %}
+                {% endfor %}
+
             </div>
         </div>
     </div>
 </body>
+{% else %}
+<div class="mb-4 ml-4 mt-4">
+    <h3>This category does not have any posts.</h3>
+</div>
 {% endif %}
 
 {% endblock %}

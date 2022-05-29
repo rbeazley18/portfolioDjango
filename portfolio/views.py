@@ -1,6 +1,7 @@
 from pyexpat import model
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, FileResponse, HttpResponse
+import os
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse, reverse_lazy
 from django.views import generic
@@ -25,6 +26,12 @@ class DetailView(generic.DetailView):
 
 def ResumeView(request):
     return render(request, 'portfolio/resume.html')
+
+def pdf_view(request):
+    with open('static/resume.pdf', 'rb') as pdf:
+        response = HttpResponse(pdf.read(),content_type='application/pdf')
+        response['Content-Disposition'] = 'filename=some_file.pdf'
+        return response
 
 
 def AboutView(request):
