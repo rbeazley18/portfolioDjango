@@ -56,7 +56,7 @@
                     <div class="card-body border-top d-flex flex-column justify-content-between">
                         <div>
                             <h4 class="card-title">{{ project.title }}</h4>
-                            <p class="lead card-text">{{ project.description | safe }}</p>
+                            <p class="lead card-text">{{ project.snippet | safe }}</p>
                         </div>
                         <div class="mt-2">
                             <a class="btn btn-success btn-sm" href="{% url 'portfolio:detail' project.id %}"
