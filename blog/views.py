@@ -41,7 +41,6 @@ class DetailView(generic.DetailView):
 
         the_likes = get_object_or_404(BlogPost, id=self.kwargs['pk'])
         total_likes = the_likes.total_likes()
-        #total_dislikes = the_likes.total_dislikes()
 
         liked = False
         if the_likes.likes.filter(id=self.request.user.id).exists():
@@ -49,7 +48,6 @@ class DetailView(generic.DetailView):
 
         context['cat_menu'] = cat_menu
         context['total_likes'] = total_likes
-        #context['total_dislikes'] = total_dislikes
         context['liked'] = liked
         return context
 
@@ -72,6 +70,10 @@ class NewPostView(generic.CreateView):
     model = BlogPost
     form_class = NewPostForm
     template_name = 'blog/new_post.html'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
     def get_context_data(self, *args, **kwargs): 
         cat_menu = Category.objects.all()
@@ -106,6 +108,9 @@ class UpdatePostView(generic.UpdateView):
     model = BlogPost
     form_class = UpdatePostForm
     template_name = 'blog/update_post.html'
+
+    def get_success_url(self):
+        return reverse_lazy('blog:detail', kwargs={'pk':self.kwargs['pk']})
 
     def get_context_data(self, *args, **kwargs): 
         cat_menu = Category.objects.all()

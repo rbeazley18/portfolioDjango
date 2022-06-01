@@ -12,22 +12,24 @@
         .container {
             background-color: rgb(179, 179, 179);
         }
+
+        .card {
+            box-shadow: 4px 6px 4px 2px rgba(0, 0, 0, 0.1);
+        }
     </style>
 
     <div class="container my-3 p-3 rounded">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="card-title mb-4">Blog Categories:</h2>
-                        {% for item in cat_menu_list %}
-                        <div class="list-group col-md-12">
-                            <a class="list-group-item list-group-item-action"
-                                href="{% url 'blog:category' item|slugify %}">{{ item }}</a>
-                        </div>
-                        {% endfor %}
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title mb-4 text-center">Blog Categories</h1>
+                {% for item in cat_menu_list %}
+                <div class="row justify-content-center">
+                    <div class="list-group col-md-5">
+                        <a class="list-group-item list-group-item-action text-center lead"
+                            href="{% url 'blog:category' item|slugify %}">{{ item }}</a>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
