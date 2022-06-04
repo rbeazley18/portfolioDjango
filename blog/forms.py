@@ -13,11 +13,11 @@ for item in choices:
 class NewPostForm(forms.ModelForm):
     class Meta:
         model = BlogPost
-        fields = ('title', 'blogpost_text', 'snippet', 'header_image')
+        fields = ('title', 'category', 'blogpost_text', 'snippet', 'header_image')
 
         widgets = {
             'title':forms.TextInput(attrs={'class': 'form-control'}),
-            #'category':forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
+            'category':forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
             'blogpost_text':forms.Textarea(attrs={'class': 'form-control'}),
             'snippet':forms.Textarea(attrs={'class': 'form-control', 'placeholder':'Add a short description of your post'}),
         }
