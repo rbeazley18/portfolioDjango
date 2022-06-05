@@ -22,8 +22,6 @@ class BlogPost(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     blogpost_text = RichTextField(blank=True, null=True)
-    #blogpost_text = models.TextField(blank=False)
-    category = models.CharField(max_length=200, default='Coding')
     snippet = models.CharField(max_length=255, blank=True)
     likes = models.ManyToManyField(User, related_name='blog_likes', blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
