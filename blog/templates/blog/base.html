@@ -30,24 +30,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'blog:about' %}">About</a>
                 </li>
-                {% if cat_menu %}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown03">
-                            {% if user.is_authenticated %}
-                            <a class="dropdown-item" href="{% url 'blog:add_category' %}">Add Category...</a>
-                            <div class="dropdown-divider"></div>
-                            {% endif %}
-                            {% for item in cat_menu %}
-                            <a class="dropdown-item" href="{% url 'blog:category' item|slugify %}">{{ item }}</a>
-                            {% endfor %}
-                        </div>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blog:category_list' %}">Categories</a>
-                </li>
-                {% endif %}
                 {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'blog:new_post' %}">New Post</a>

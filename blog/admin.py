@@ -4,8 +4,8 @@ from .forms import NewPostForm
 
 
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'status', 'category', 'pub_date')
-    list_filter = ('status', 'category')
+    list_display = ('title', 'author', 'status', 'pub_date')
+    list_filter = ('status')
     search_fields = ['title', 'blogpost_text']
 
 class CommentAdmin(admin.ModelAdmin):
