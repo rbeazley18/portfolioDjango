@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('posts/', include('blog.urls')),
-    path('admin/', admin.site.urls),
+    path('admin/', include('admin.site.urls')),
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
     path('', include('portfolio.urls')),
