@@ -5,7 +5,7 @@ from . import views
 
 app_name = 'portfolio'
 urlpatterns = [
-    path('/', views.IndexView.as_view(), name='index'),
+    path('', views.IndexView.as_view(), name='index'),
     path('<int:pk>/', views.DetailView.as_view(), name='detail'),
     path('resume/', views.ResumeView, name='resume'),
     path('resume_pdf/', views.pdf_view, name='resume_pdf'),
