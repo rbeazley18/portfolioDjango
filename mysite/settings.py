@@ -33,6 +33,8 @@ DEBUG_PROPAGATE_EXCEPTIONS = True
 
 ALLOWED_HOSTS = ['beazleyportfolio.herokuapp.com']
 
+ADMINS = [('Robert Beazley', 'robertbeazley18@gmail.com'),]
+
 
 
 # Application definition
