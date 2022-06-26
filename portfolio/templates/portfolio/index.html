@@ -49,6 +49,9 @@
                     {% if project.header_image %}
                     <img class="card-image-top rounded-top" style="max-width:100%; height:200px"
                         src="{{ project.header_image.url }}">
+                    {% else %}
+                    <img class="card-image-top rounded-top" style="max-width:100%; height:200px"
+                        src="{% static 'portfolio\images\defaultprofilepic.png\' %}">
                     {% endif %}
                     <div class="card-body border-top d-flex flex-column justify-content-between">
                         <div>
