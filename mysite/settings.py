@@ -39,8 +39,7 @@ AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-DEBUG_PROPAGATE_EXCEPTIONS = True
+DEBUG = True
 
 ALLOWED_HOSTS = ['beazleyportfolio.herokuapp.com']
 
@@ -77,6 +76,7 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
+    'django.middleware.common.BrokenLinkEmailsMiddleware'
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
