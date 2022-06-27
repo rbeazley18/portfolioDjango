@@ -17,12 +17,14 @@ import dj_database_url
 import environ
 from decouple import config
 
-env = environ.Env()
-environ.Env.read_env()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 #BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+env = environ.Env()
+environ.Env.read_env(env_file=str(BASE_DIR) + '/.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
