@@ -36,8 +36,7 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <h2 class="card-title">{{ blogpost.title }}</h2>
-                        <h6 class="card-subtitle mb-3 text-muted">{{ blogpost.author.first_name }} {{ blogpost.author.last_name }} | <a href="{% url 'blog:category' blogpost.category|slugify %}">{{ blogpost.category }}</a> | 
-                            {% if blogpost.pub_date == blogpost.updated_on %}
+                        <h6 class="card-subtitle mb-3 text-muted">{{ blogpost.author.first_name }} {{ blogpost.author.last_name }} | {% if blogpost.pub_date == blogpost.updated_on %}
                             Created: {{ blogpost.pub_date }}
                             {% else %}
                             Created: {{ blogpost.pub_date }} 

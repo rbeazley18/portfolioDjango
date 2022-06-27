@@ -1,13 +1,8 @@
 from django import forms
-from .models import BlogPost, Comment, Category
+from .models import BlogPost, Comment
 
 #choices = [('coding', 'coding'), ('sports', 'sports'), ('movies', 'movies'),]
-choices = Category.objects.all().values_list('name', 'name')
 
-choice_list = []
-
-for item in choices:
-    choice_list.append(item)
 
 
 class NewPostForm(forms.ModelForm):
@@ -17,7 +12,6 @@ class NewPostForm(forms.ModelForm):
 
         widgets = {
             'title':forms.TextInput(attrs={'class': 'form-control'}),
-            #'category':forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
             'blogpost_text':forms.Textarea(attrs={'class': 'form-control'}),
             'snippet':forms.Textarea(attrs={'class': 'form-control', 'placeholder':'Add a short description of your post'}),
         }

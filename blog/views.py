@@ -6,7 +6,7 @@ from django.urls import reverse, reverse_lazy
 from django.views import generic
 from django.utils import timezone
 
-from .models import BlogPost, Category, Comment
+from .models import BlogPost, Comment
 from .forms import NewPostForm, CommentForm, UpdatePostForm
  
  
@@ -17,11 +17,7 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return BlogPost.objects.filter(status=1).order_by('-pub_date')
 
-    def get_context_data(self, *args, **kwargs): 
-        cat_menu = Category.objects.all()
-        context = super(IndexView, self).get_context_data(*args, **kwargs)
-        context['cat_menu'] = cat_menu
-        return context
+    
  
 
 
@@ -36,7 +32,6 @@ class DetailView(generic.DetailView):
         #return BlogPost.objects.filter(pub_date__lte=timezone.now())
 
     def get_context_data(self, *args, **kwargs): 
-        cat_menu = Category.objects.all()
         context = super(DetailView, self).get_context_data(*args, **kwargs)
 
         the_likes = get_object_or_404(BlogPost, id=self.kwargs['pk'])
@@ -46,7 +41,6 @@ class DetailView(generic.DetailView):
         if the_likes.likes.filter(id=self.request.user.id).exists():
             liked = True
 
-        context['cat_menu'] = cat_menu
         context['total_likes'] = total_likes
         context['liked'] = liked
         return context
@@ -75,34 +69,6 @@ class NewPostView(generic.CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-    def get_context_data(self, *args, **kwargs): 
-        cat_menu = Category.objects.all()
-        context = super(NewPostView, self).get_context_data(*args, **kwargs)
-        context['cat_menu'] = cat_menu
-        return context
-
-
-class AddCategoryView(generic.CreateView):
-    model = Category
-    template_name = 'blog/add_category.html'
-    fields = '__all__'
-
-    def get_context_data(self, *args, **kwargs): 
-        cat_menu = Category.objects.all()
-        context = super(AddCategoryView, self).get_context_data(*args, **kwargs)
-        context['cat_menu'] = cat_menu
-        return context
-
-
-def CategoryView(request, cats):
-    category_posts = BlogPost.objects.filter(category__iexact=cats.replace('-', ' '))
-    return render(request, 'blog/categories.html', {'cats': cats.title().replace('-', ' '), 'category_posts': category_posts})
-
-
-def CategoryListView(request):
-    cat_menu_list = Category.objects.all()
-    return render(request, 'blog/category_list.html', {'cat_menu_list': cat_menu_list})
-
 
 class UpdatePostView(generic.UpdateView):
     model = BlogPost
@@ -112,11 +78,7 @@ class UpdatePostView(generic.UpdateView):
     def get_success_url(self):
         return reverse_lazy('blog:detail', kwargs={'pk':self.kwargs['pk']})
 
-    def get_context_data(self, *args, **kwargs): 
-        cat_menu = Category.objects.all()
-        context = super(UpdatePostView, self).get_context_data(*args, **kwargs)
-        context['cat_menu'] = cat_menu
-        return context
+    
 
 
 class DeletePostView(generic.DeleteView):
@@ -124,11 +86,7 @@ class DeletePostView(generic.DeleteView):
     template_name = 'blog/delete_post.html'
     success_url = reverse_lazy('blog:index')
 
-    def get_context_data(self, *args, **kwargs): 
-        cat_menu = Category.objects.all()
-        context = super(DeletePostView, self).get_context_data(*args, **kwargs)
-        context['cat_menu'] = cat_menu
-        return context
+    
 
 
 class CommentView(generic.CreateView):
@@ -143,11 +101,7 @@ class CommentView(generic.CreateView):
     def get_success_url(self):
         return reverse_lazy('blog:detail', kwargs={'pk':self.kwargs['pk']})
 
-    def get_context_data(self, *args, **kwargs): 
-        cat_menu = Category.objects.all()
-        context = super(CommentView, self).get_context_data(*args, **kwargs)
-        context['cat_menu'] = cat_menu
-        return context
+    
 
 
 def SearchBlogView(request):

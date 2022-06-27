@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import BlogPost, Comment, Category, Profile
+from .models import BlogPost, Comment, Profile
 from .forms import NewPostForm
 
 
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'status', 'category', 'pub_date')
-    list_filter = ('status', 'category')
+    list_display = ('title', 'author', 'status', 'pub_date')
+    list_filter = ('status',)
     search_fields = ['title', 'blogpost_text']
 
 class CommentAdmin(admin.ModelAdmin):
@@ -14,7 +14,7 @@ class CommentAdmin(admin.ModelAdmin):
     search_fields = ('name', 'body')
 
 
-admin.site.register(Category)
+
 admin.site.register(BlogPost, BlogAdmin)
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(Profile)
