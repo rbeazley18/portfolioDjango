@@ -42,7 +42,17 @@ DEBUG_PROPAGATE_EXCEPTIONS = True
 
 ALLOWED_HOSTS = ['beazleyportfolio.herokuapp.com']
 
-ADMINS = [('Robert Beazley', 'robertbeazley18@gmail.com'),]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = env('EMAIL_USER') #my gmail username
+EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD') #my gmail password
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+
+ADMINS = [('Robert', EMAIL_HOST_USER)]
+MANAGERS = ADMINS
 
 
 
@@ -111,6 +121,9 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
