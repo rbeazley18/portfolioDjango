@@ -1,8 +1,6 @@
 from django import forms
 from .models import BlogPost, Comment
 
-#choices = [('coding', 'coding'), ('sports', 'sports'), ('movies', 'movies'),]
-
 
 
 class NewPostForm(forms.ModelForm):
