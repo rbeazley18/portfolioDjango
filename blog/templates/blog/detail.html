@@ -117,7 +117,7 @@
                                     alt="Card image cap"></a>
                             {% else %}
                             <a href="{% url 'members:show_profile_page' blogpost.author.profile.id %}"><img
-                                    class="img-fluid rounded" src="{% staticfiles 'blog\images\defaultprofilepic.png' %}"
+                                    class="img-fluid rounded" src="{% static 'blog\images\defaultprofilepic.png' %}"
                                     alt="Card image cap"></a>
                             {% endif %}
                         </div>
