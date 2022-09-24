@@ -3,6 +3,8 @@
 
 {% block head %}
 <title>My Portfolio</title>
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 {% endblock %}
 
 
@@ -10,11 +12,12 @@
 
 <body>
     <style>
-        #title {
-            background-color: rgb(105, 179, 108);
+        body {
+            background-image: url({% static 'wp7516602-black-mountain-wallpapers.jpg' %});
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
         }
-
-
 
         #site_link {
             background-color: rgb(105, 179, 108);
@@ -30,48 +33,66 @@
             font-family: 'Nunito Sans', sans-serif;
         }
 
-        .logos {
-            width: 35%;
-            height: auto;
+        p {
+            font-family: 'Nunito Sans', sans-serif;
         }
-        
 
+        .jumbotron {
+            height: fit-content;
+            /* background-color: rgb(105, 179, 108); */
+        }
+
+
+        .logos {
+            margin: auto;
+            width: 50%;
+
+        }
+
+        /* .carousel-control-next-icon:after {
+            font-size: 55px;
+            color: rgb(105, 179, 108);
+        }
+
+        .carousel-control-prev-icon:after {
+            content: '<';
+            font-size: 55px;
+            color: rgb(105, 179, 108);
+        } */
     </style>
     <header>
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-md-10">
-                    <div class="rounded mt-4 text-center text-light shadow-lg" id="title">
-                        <h1 class="display-3">My Coding Portfolio</h1>
-                        <p class="lead">I have been learning how to code since October 2021,<br> and these are my
-                            coding projects.</p>
-                        <div class="row justify-content-center ">
-                            <div id="carouselExampleControls" class="carousel slide my-5 col-6" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active mx-auto">
-                                        <img src="{% static 'python-logo-only.svg' %}" class="logos" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="{% static 'django-logo-negative.png' %}" class="logos" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="{% static 'LI-In-Bug.png' %}" class="logos" alt="...">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button"
-                                    data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button"
-                                    data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
+        <div class="container p-4">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-6">
+                    <div class="rounded mt-4 text-light py-4 jumbotron" id="title">
+                        <h1 class="display-2 fw-bold">Robert Beazley</h1>
+                        <p class="lead">Frontend software developer with Python and Django experience.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="carouselExampleControls" class="carousel slide mt-4" data-bs-ride="false">
+                        <div class="carousel-inner mx-auto">
+                            <div class="carousel-item active">
+                                <img src="{% static 'python-logo-generic.svg' %}" class="logos d-block" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{% static 'django-logo-positive.svg' %}" class="logos d-block" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{% static 'HTML5_Logo.svg' %}" class="logos d-block" alt="">
                             </div>
                         </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -101,5 +122,38 @@
             {% endfor %}
         </div>
     </div>
+    <br>
+    <br>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-5 align-items-center">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="false">
+                    <div class="carousel-inner mx-auto">
+                        <div class="carousel-item active">
+                            <img src="{% static 'python-logo-generic.svg' %}" class="logos d-block" alt="">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'django-logo-positive.svg' %}" class="logos d-block" alt="">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'HTML5_Logo.svg' %}" class="logos d-block" alt="">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    {% endblock %}
+</body>
+
+{% endblock %}
