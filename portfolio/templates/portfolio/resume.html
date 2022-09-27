@@ -46,7 +46,7 @@
         }
 
         .skills {
-            margin: 0 5px;
+            margin: 0 auto;
             white-space: nowrap;
         }
 
@@ -55,17 +55,29 @@
         }
 
         a {
-            color: rgba(105, 179, 108);
+            color: white;
         }
 
-        @media (max-width: 1000px) {
-            header, h4 {
-            text-align: center;
+        a:hover {
+            color:  rgba(105, 179, 108);
         }
+
+
+        @media (max-width: 1000px) {
+
+            header,
+            h4 {
+                text-align: center;
+            }
+
+            .skills-list {
+                text-align: center;
+                justify-content: center;
+            }
         }
     </style>
     <div class="container-fluid p-2 pb-lg-5">
-        <div class="col-12 col-md-11 col-lg-10 mx-auto" id="resume">
+        <div class="col-12 col-md-11 col-lg-10 mx-auto shadow-lg" id="resume">
             <header class="py-4 px-4 text-white rounded-top">
                 <div class="row justify-content-between align-items-start">
                     <div class="ml-2">
@@ -82,7 +94,7 @@
                     </div>
                 </div>
             </header>
-            <main class="p-4 rounded-bottom">
+            <main class="p-4 rounded-bottom shadow-lg">
                 <div class="">
                     <div class="row d-flex flex-row justify-content-between ">
                         <div class="col-md-3">
@@ -91,9 +103,9 @@
                         <div class="col-md-9 text-left">
                             <p>Experienced professional making career transition into software development. Passion for
                                 web
-                                development with excellent problem solving skills and resourcefulness. Proven ability to
-                                drive success and lead a team. Background in environmental compliance and utility
-                                vegetation
+                                development with excellent problem-solving skills and resourcefulness. Proven ability to
+                                drive
+                                success and lead a team. Background in environmental compliance and utility vegetation
                                 management with highly effective written and oral communication skills.
                             </p>
                         </div>
@@ -101,12 +113,12 @@
                     <hr>
                 </div>
                 <div class="mt-4">
-                    <div class="row justify-content-between">
+                    <div class="row text-left">
                         <div class="col-md-3">
                             <h4><em>Skills</em></h4>
                         </div>
                         <div class="col-md-9">
-                            <div class="row align-items-start">
+                            <div class="row skills-list">
                                 <div class="col-3 col-md-2 skills">
                                     <ul class="list-unstyled">
                                         <li>Python</li>
@@ -153,26 +165,31 @@
                 </div>
 
                 <div class="mt-4">
-                    <div class="row d-flex flex-row justify-content-between">
+                    <div class="row text-left">
                         <div class="col-md-3">
                             <h4><em>Work Experience</em></h4>
                         </div>
-                        <div class="col-md-9 text-left pr-2">
+                        <div class="col-md-9 pr-2">
                             <div>
-                                <h6>Freelance Software Development (November 2021-Present)</h6>
+                                <h6>Freelance Software Developer (November 2021-Present)</h6>
                                 <ul>
                                     <li>Create and launch a functional and aesthetically pleasing web application for
                                         client
-                                        utilizing Python, Django, HTML, CSS, Bootstrap, and Heroku.</li>
-                                    <li>Utilize frontend web development skills to add additional features to website,
-                                        such
-                                        as user managed photo galleries and email communication abilities for site
+                                        utilizing Python, Django, HTML, CSS, Bootstrap, and Heroku.
+                                    </li>
+                                    <li>Utilize frontend web development skills to add additional features to the
+                                        website, such as
+                                        user-managed photo galleries and email communication abilities for site
                                         visitors.
                                     </li>
-                                    <li>Optimize application for a wide range of screen sizes, including mobile.</li>
+                                    <li>Optimize application for a wide range of screen sizes, including mobile.
+                                    </li>
                                     <li>Troubleshoot bugs or site issues reported by client and implement fixes within
                                         code
-                                        base.</li>
+                                        base.
+                                    </li>
+                                    <li>Effectively integrate services such as AWS S3, Twilio SendGrid, and Heroku.
+                                    </li>
                                 </ul>
                             </div>
                             <div>
@@ -181,7 +198,7 @@
                                 <ul>
                                     <li>Inspect tree trimming and tree removal work on Duke Energy distribution lines in
                                         the
-                                        Raleigh/Cary area in order to maintain grid reliability and safety.
+                                        Raleigh/Cary area to maintain grid reliability and safety.
                                     </li>
                                     <li>Communicate with customers and tree contractors to ensure work is completed in
                                         compliance with Duke Energy’s specifications and to the satisfaction of property
@@ -198,22 +215,23 @@
                                         on a
                                         person’s skill level, budget, and other individual needs.
                                     </li>
-                                    <li>Continuously follow-up with customers to provide support and assist with any new
-                                        gear requirements or customer service related issues.</li>
+                                    <li>Continuously follow up with customers to provide support and assist with any new
+                                        gear
+                                        requirements or customer service issues.</li>
                                 </ul>
                             </div>
                             <div>
                                 <h6>CN Utility Consulting-Raleigh, NC: Contract Forester (October 2020-July 2021)
                                 </h6>
                                 <ul>
-                                    <li>Work directly with Duke Energy in the Raleigh area to maintain transmission
-                                        powerline reliability and safety through established vegetation management
-                                        practices.</li>
-                                    <li>Effectively communicate tree work to property owners and address any concerns
-                                        using
-                                        arboricultural and utility knowledge.
+                                    <li>Worked directly with Duke Energy in the Raleigh area to maintain transmission
+                                        powerline
+                                        reliability and safety through established vegetation management practices.
                                     </li>
-                                    <li>Maintain quality of work and safety culture through tree crew oversight and QA
+                                    <li>Effectively communicated tree work to property owners and addressed any concerns
+                                        using arboricultural and utility knowledge.
+                                    </li>
+                                    <li>Maintained quality of work and safety culture through tree crew oversight and QA
                                         inspections.
                                     </li>
                                 </ul>
@@ -222,16 +240,15 @@
                                 <h6>Environmental Consultants Incorporated (ECI)-Truckee, CA:
                                     Consulting Utility Forester (May 2019-August 2020)</h6>
                                 <ul>
-                                    <li>Contracted by Liberty Utilities-Lake Tahoe to work alongside the vegetation
-                                        management department to maintain compliance with line clearance regulations.
+                                    <li>Contracted by Liberty Utilities-Lake Tahoe to work alongside the vegetation management
+                                        department to maintain compliance with line clearance regulations.
+                                        
                                     </li>
-                                    <li>Improve grid reliability and safety through identification of trees that pose a
-                                        risk
-                                        to high-voltage lines.
+                                    <li>Improved grid reliability and safety through identification of trees that posed a risk to
+                                        high-voltage lines.
                                     </li>
-                                    <li>Effectively communicate with customers and address any concerns regarding tree
-                                        work
-                                        to be completed.
+                                    <li>Effectively communicated with customers and addressed any concerns regarding tree
+                                        work to be completed.
                                     </li>
                                 </ul>
                             </div>
@@ -239,13 +256,11 @@
                                 <h6>Phillips and Jordan-Raleigh, NC: Environmental Coordinator (May 2017-October 2017)
                                 </h6>
                                 <ul>
-                                    <li>Monitored site restoration progress on transmission line projects, and created
-                                        detailed reports that included the appropriate NPDES forms and photo
-                                        documentation.
+                                    <li>Monitored site restoration progress on transmission line projects and created detailed
+                                        reports that included the appropriate NPDES forms and photo documentation.                                
                                     </li>
-                                    <li>Worked with a team of contractors and utility representatives to comply with
-                                        line
-                                        build specifications and maintain BMPs.
+                                    <li>Worked with a team of contractors and utility representatives to comply with line build
+                                        specifications and maintain BMPs.
                                     </li>
                                 </ul>
                             </div>
@@ -270,9 +285,8 @@
                                                     <li>Taught adults and children the fundamentals of skiing through
                                                         methodical progression.
                                                     </li>
-                                                    <li>Effectively communicated techniques and skills in a group
-                                                        setting
-                                                        and provide individual feedback to clients.
+                                                    <li>Effectively communicated techniques and skills in a group setting and provided individual
+                                                        feedback to clients.
                                                     </li>
                                                 </ul>
                                             </div>
@@ -280,8 +294,8 @@
                                                 <h6>Black Tie Ski Rental Delivery-Truckee, CA: Technician (November
                                                     2018-April 2019)</h6>
                                                 <ul>
-                                                    <li>Deliver ski and snowboard equipment to guests and fit them with
-                                                        proper boots and skis based on skill level or skiing style.
+                                                    <li>Delivered ski and snowboard equipment to guests and fit them with proper boots and
+                                                        skis based on skill level or skiing style.
                                                     </li>
                                                 </ul>
                                             </div>
@@ -290,10 +304,8 @@
                                                     2018)
                                                 </h6>
                                                 <ul>
-                                                    <li>Worked with a team to create landscape features such as
-                                                        flagstone
-                                                        walkways and decorative flower beds and performed regular
-                                                        maintenance on yards.
+                                                    <li>Worked with a team to create landscape features such as flagstone walkways and
+                                                        decorative flower beds and performed regular maintenance on yards.
                                                     </li>
                                                 </ul>
                                             </div>
@@ -301,8 +313,8 @@
                                                 <h6>Vail Lacrosse Club-Vail, CO: U12 Coach (Spring 2018)
                                                 </h6>
                                                 <ul>
-                                                    <li>Taught players the fundamentals of lacrosse and emphasized the
-                                                        importance of teamwork and sportsmanship throughout the season.
+                                                    <li>Taught players the fundamentals of lacrosse and emphasized the importance of
+                                                        teamwork and sportsmanship throughout the season.
                                                     </li>
                                                 </ul>
                                             </div>
@@ -310,17 +322,23 @@
                                                 <h6>Vail Ski Resort-Vail, CO: Mountain Safety (November 2017-April 2018)
                                                 </h6>
                                                 <ul>
-                                                    <li>Interacted with guests to educate them on how to ski or ride in
-                                                        the
-                                                        safest way possible.
+                                                    <li>Interacted with guests to educate them on how to ski or ride in the safest way possible.
                                                     </li>
-                                                    <li>Worked with a team set up preventative measures around the
-                                                        mountain
-                                                        to help reduce accidents.
+                                                    <li>Worked with a team to set up preventive measures around the mountain to help reduce
+                                                        accidents.                                        
                                                     </li>
-                                                    <li>Helped host safety related events to raise awareness of safety
-                                                        on
-                                                        the mountain.
+                                                    <li>Helped host safety-related events to raise awareness of safety on the mountain.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h6>Foster Lake and Pond Management-Charlotte, NC: Technician (June 2015-April 2017)
+                                                </h6>
+                                                <ul>
+                                                    <li>Analyzed the current state of ponds and lakes and developed strategies to improve the
+                                                        ecosystem.
+                                                    </li>
+                                                    <li>Completed stormwater BMP restoration and maintenance projects.
                                                     </li>
                                                 </ul>
                                             </div>
@@ -330,7 +348,7 @@
                                                 <ul>
                                                     <li>Worked with a team to frame and deck docks.
                                                     </li>
-                                                    <li>Operated forklift, skid-steer, and other forms of heavy
+                                                    <li>Operated forklift, skid-steer, and other heavy
                                                         equipment.
                                                     </li>
                                                 </ul>
@@ -346,23 +364,23 @@
                     <hr>
                 </div>
                 <div class="mt-4 mb-4">
-                    <div class="row d-flex flex-row justify-content-between">
+                    <div class="row text-left">
                         <div class="col-md-3">
                             <h4><em>Education</em></h4>
                         </div>
-                        <div class="col-md-9 text-left">
-                            <h5 class="fw-bold">North Carolina State University (2012-2016)</h5>
+                        <div class="col-md-9">
+                            <h6 class="fw-bold">North Carolina State University (2012-2016)</h6>
                             <p>B.S. in Fisheries, Wildlife, and Conservation Biology-Fisheries Concentration</p>
                         </div>
                     </div>
                     <hr>
                 </div>
                 <div class="mt-4 mb-4">
-                    <div class="row d-flex flex-row justify-content-between">
+                    <div class="row text-left">
                         <div class="col-md-3">
                             <h4><em>Scholarships and Awards</em></h4>
                         </div>
-                        <div class="col-md-9 text-left">
+                        <div class="col-md-9">
                             <ul class="list-unstyled">
                                 <li class="mb-1">Chancellor’s Leadership Scholarship (2012)
                                 </li>

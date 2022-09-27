@@ -48,6 +48,10 @@
             height: 150px;
         }
 
+        p {
+            font-size: 20px;
+        }
+
         @media (max-width: 1000px) {
             #title {
                 text-align: center;
@@ -69,7 +73,7 @@
                     <div class="rounded mt-4 text-light py-4 jumbotron" id="title">
                         <h1 class="display-1 fw-bold">Robert Beazley</h1>
                         <p class="lead subtitle">Frontend software developer with Python and Django experience.</p>
-                        <a class="btn text-light shadow-lg" href="#" id="site_link" role="button">Contact Me</a>
+                        <!-- <a class="btn text-light shadow-lg" href="#" id="site_link" role="button">Contact Me</a> -->
                     </div>
                 </div>
                 <div class="col-lg-5 col-10 mt-lg-0 mt-4">
@@ -106,7 +110,7 @@
     <div class="container mt-3 rounded">
         <div class="row justify-content-center">
             {% for project in project_list %}
-            <div class="col-md-4 py-3">
+            <div class="col-11 col-sm-10 col-md-6 col-lg-4 py-3">
                 <div class="card h-100 rounded shadow-lg">
                     {% if project.header_image %}
                     <img class="card-image-top rounded-top" style="width:100%; height:auto"
@@ -114,8 +118,8 @@
                     {% endif %}
                     <div class="card-body d-flex flex-column justify-content-between">
                         <div>
-                            <h4 class="card-title text-light fw-bold">{{ project.title }}</h4>
-                            <p class="lead card-text text-light">{{ project.snippet | safe }}</p>
+                            <h3 class="card-title text-light fw-bold">{{ project.title }}</h3>
+                            <p class="card-text text-light">{{ project.snippet | safe }}</p>
                         </div>
                         <div class="mt-2">
                             <a class="btn text-light btn-sm" href="{% url 'portfolio:detail' project.id %}"

@@ -13,16 +13,11 @@
         #site_link {
             background-color: rgb(105, 179, 108, 0.712);
             border-color: rgba(105, 179, 108, 0.712);
+            
         }
-
-        
 
         body {
             color: white;
-        }
-
-        .container {
-            max-width: 1350px;
         }
 
         p {
@@ -35,15 +30,33 @@
 
         .description {
             background-color: rgba(101, 102, 101, 0.904);
+            max-width: 1600px;
+            
         }
     </style>
     {% if projects.header_image %}
-    <div class="container p-2">
-        <div class="row justify-content-center description rounded-3 px-0 px-md-4 shadow-lg mx-2">
-
-            <div class="col-11 col-md-8 col-xl-7 p-2 align-self-center">
-                <img src="{{ projects.header_image.url }}" width="100%" class="img-fluid rounded" alt="Responsive image">
+    <div class="container-fluid p-2 p-md-4">
+        <div class="row mx-auto justify-content-center align-items-center description rounded-3 p-1 p-md-3 shadow-lg">
+            <div class="col-12 col-md-8 col-xl-7 p-2">
+                <img src="{{ projects.header_image.url }}" width="100%" class="img-fluid rounded"
+                    alt="Responsive image">
             </div>
+
+            <div class="col-11 col-md-8 col-xl-5 p-4">
+                <h1 class="">{{ projects.title }}</h1>
+                <p class="author">{{ projects.author }} |
+                    Uploaded: {{ projects.pub_date }}
+                </p>
+                <p class="">{{ projects.description | safe }}</p>
+                <a class="btn text-light" href="{{ projects.website_url }}" id="site_link" role="button">View Site
+                    &raquo;</a>
+                <a class="btn btn-outline-light" href="{% url 'portfolio:index' %}" role="button" id="back">Back</a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="container">
+        <div class="row justify-content-center description rounded-3 px-0 p-md-2 shadow-lg m-1 m-md-2">
 
             <div class="col-11 col-md-8 col-xl-5 p-2">
                 <h1 class="">{{ projects.title }}</h1>
@@ -51,22 +64,9 @@
                     Uploaded: {{ projects.pub_date }}
                 </p>
                 <p class="">{{ projects.description | safe }}</p>
-                <a class="btn text-light" href="{{ projects.website_url }}" id="site_link" role="button">View Site &raquo;</a>
+                <a class="btn text-light" href="{{ projects.website_url }}" id="site_link" role="button">View Site
+                    &raquo;</a>
                 <a class="btn btn-outline-light" href="{% url 'portfolio:index' %}" role="button" id="back">Back</a>
-            </div>
-        </div>
-    </div>
-    {% else %}
-    <div class="container-fluid p-4">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <h1 class="">{{ projects.title }}</h1>
-                <p class="author">{{ projects.author }} |
-                    Uploaded: {{ projects.pub_date }}
-                </p>
-                <p class="">{{ projects.description | safe }}</p>
-                <a class="btn" href="{{ projects.website_url }}" id="site_link" role="button">View Site &raquo;</a>
-                <a class="btn" href="{% url 'portfolio:index' %}" role="button">Back</a>
             </div>
         </div>
     </div>
