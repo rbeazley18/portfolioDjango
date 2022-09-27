@@ -12,7 +12,6 @@
 
 <body>
     <style>
-
         #site_link {
             background-color: rgb(105, 179, 108, 0.712);
             border-color: rgba(105, 179, 108, 0.712);
@@ -31,7 +30,6 @@
 
         .jumbotron {
             height: fit-content;
-            /* background-color: rgb(105, 179, 108); */
         }
 
         .logos {
@@ -45,22 +43,37 @@
             white-space: nowrap;
         }
 
-        h4 {
-            max-width: 70%;
+
+        .carousel {
+            height: 150px;
         }
-    
+
+        @media (max-width: 1000px) {
+            #title {
+                text-align: center;
+            }
+
+            .logos {
+                margin: auto;
+                width: auto;
+                max-height: 120px;
+                max-width: 50%;
+            }
+
+        }
     </style>
     <header>
         <div class="container p-4">
-            <div class="row justify-content-between align-items-center">
-                <div class="col-md-7">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-7 col-11">
                     <div class="rounded mt-4 text-light py-4 jumbotron" id="title">
                         <h1 class="display-1 fw-bold">Robert Beazley</h1>
-                        <h4>Frontend software developer with Python and Django experience.</h4>
+                        <p class="lead subtitle">Frontend software developer with Python and Django experience.</p>
+                        <a class="btn text-light shadow-lg" href="#" id="site_link" role="button">Contact Me</a>
                     </div>
                 </div>
-                <div class="col-md-5">
-                    <div id="carouselExampleControls" class="carousel slide mt-4" data-bs-ride="true">
+                <div class="col-lg-5 col-10 mt-lg-0 mt-4">
+                    <div id="carouselExampleControls" class="carousel slide mt-4" data-bs-ride="carousel">
                         <div class="carousel-inner mx-auto">
                             <div class="carousel-item active">
                                 <img src="{% static 'python-logo-only.svg' %}" class="logos d-block" alt="">
@@ -84,16 +97,6 @@
                                 <img src="{% static 'Git-Logo-White.svg' %}" class="logos d-block" alt="">
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
                     </div>
                 </div>
             </div>
@@ -115,7 +118,7 @@
                             <p class="lead card-text text-light">{{ project.snippet | safe }}</p>
                         </div>
                         <div class="mt-2">
-                            <a class="btn btn-success btn-sm" href="{% url 'portfolio:detail' project.id %}"
+                            <a class="btn text-light btn-sm" href="{% url 'portfolio:detail' project.id %}"
                                 id="site_link" role="button">Read More &raquo;</a>
                         </div>
                     </div>
@@ -126,7 +129,7 @@
     </div>
     <br>
     <br>
-    
+
 
 </body>
 

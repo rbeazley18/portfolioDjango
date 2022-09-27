@@ -10,239 +10,369 @@
 <body>
     <style>
         .container {
-            background-color: rgb(105, 179, 108);
+            background-color: transparent;
         }
 
-        .border-top {
-            border-width: thick;
+        main {
+            background-color: rgba(101, 102, 101, 0.904);
+        }
+
+        body {
+            color: white;
+        }
+
+        /* .accordion-item, .accordion-header, .accordion-button {
+            color:  white;
+            background-color:  rgb(101, 102, 101);
+            border-color: white;
+        } */
+
+        header {
+            background-color: rgba(105, 179, 108, 0.712);
+        }
+
+        ul,
+        p,
+        h6,
+        button {
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 18px;
+        }
+
+        button,
+        h4,
+        h6 {
+            font-weight: bold;
+        }
+
+        .skills {
+            margin: 0 5px;
+            white-space: nowrap;
+        }
+
+        #resume {
+            max-width: 1350px;
+        }
+
+        a {
+            color: rgba(105, 179, 108);
+        }
+
+        @media (max-width: 1000px) {
+            header, h4 {
+            text-align: center;
+        }
         }
     </style>
-    <div class="container my-4 p-2 rounded">
-        <header class="bg-dark py-5 px-4 text-white rounded-top">
-            <div class="row flex-row justify-content-between align-items-start">
-                <div class="ml-2">
-                    <h1 class="display-4">Robert Beazley</h1>
-                    <h3 class="font-weight-light">Web Developer</h3>
-                    
-                </div>
-                <div class="mr-2 mt-2">
-                    <ul class="list-unstyled lead">
-                        <li class="font-weight-light">Chapel Hill, NC</li>
-                        <li>robertbeazley18@gmail.com</li>
-                        <li>(704) 880-0586</li>
-                    </ul>
-                </div>
-            </div>
-        </header>
-        <main class="bg-light p-4 rounded-bottom">
-            <div class="">
-                <div class="row d-flex flex-row justify-content-between ">
-                    <div class="col-md-3">
-                        <h4 class=""><em>Profile</em></h4>
-                    </div>
-                    <div class="col-md-9 text-left">
-                        <p>Self-taught developer working towards establishing a career in software development.
-                            Experience creating web applications using Python and Django as well as frontend styling
-                            with HTML, CSS, and Bootstrap. Background in environmental compliance and utility
-                            vegetation management with excellent written and oral communication skills.</p>
-                    </div>
-                </div>
-                <hr>
-            </div>
-            <div class="mt-4">
-                <div class="row d-flex flex-row justify-content-between">
-                    <div class="col-md-3">
-                        <h4><em>Skills</em></h4>
-                    </div>
-                    <div class="col-md-9">
-                        <div class="row align-items-start">
-                            <div class="col-md-2">
-                                <ul class="list-unstyled">
-                                    <li>Python</li>
-                                    <li>Django</li>
-                                    <li>CSS</li>
-                                    <li>HTML</li>
-                            </div>
-                            <div class="col-md-2">
-                                <ul class="list-unstyled">
-                                    <li>Bootstrap</li>
-                                    <li>SQLite</li>
-                                    <li>Git</li>
-                                    <li>GitHub</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-2">
-                                <ul class="list-unstyled">
-                                    <li>Heroku</li>
-                                    <li>Powershell</li>
-                                    <li>VS Code</li>
-                                    <li>Javascript</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-2">
-                                <ul class="list-unstyled">
-                                    <li>Pandas</li>
-                                    <li>Selenium</li>
-                                    <li>Flask</li>
-                                    <li>AWS S3</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-2">
-                                <ul class="list-unstyled">
-                                    <li>GIS</li>
-                                    <li>Teams</li>
-                                    <li>Excel</li>
-                                    <li>Word</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-2">
-                                <ul class="list-unstyled">
-                                    <li>Powerpoint</li>
-                                    <li>Slack</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-            </div>
-
-            <div class="mt-4">
-                <div class="row d-flex flex-row justify-content-between">
-                    <div class="col-md-3">
-                        <h4><em>Work Experience</em></h4>
-                    </div>
-                    <div class="col-md-9 text-left pr-2">
-                        <div>
-                            <h6 class="font-weight-bold">Environmental Consultants Incorporated (ECI)-Raleigh, NC: Contract Forester (July 2021-Present)</h6>
-                            <ul class="font-weight-light">
-                                <li>Inspect tree trimming and tree removal work on Duke Energy distribution lines to
-                                    verify satisfactory completion of work by tree contractor and compliance with ANSI
-                                    standards.
-                                </li>
-                                <li>Input findings into FMA, a GIS based software, and communicate deficiencies to the
-                                    tree crew foreman in a constructive manner.
-                                </li>
-                                <li>Maintain a culture of safety through the completion of daily JSAs and complying with
-                                    strict industry standards set by OSHA, ANSI, and Duke Energy.
-                                </li>
-                                <li>
-                                    Meet with customers and address their concerns by utilizing communication skills and
-                                    utility vegetation management knowledge.
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h6 class="font-weight-bold">Curated: Ski Expert (October 2021-Present)</h6>
-                            <ul>
-                                <li>Utilize communication and sales experience to sell ski gear to customers with
-                                    Curated.com’s online platform to create personalized gear recommendations based on a
-                                    person’s skill level, budget, and other individual needs.</li>
-                                <li>Continuously follow-up with customers to provide support and assist with any new
-                                    gear requirements or customer service related issues.</li>
-                                <li>Communicate with a large pool of Curated ski experts and staff utilizing multiple
-                                    Slack channels.</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h6 class="font-weight-bold">CN Utility Consulting-Raleigh, NC: Contract Forester (January
-                                2021-July 2021)</h6>
-                            <ul class="font-weight-light">
-                                <li>Work directly with Duke Energy Vegetation Management Specialist in the Raleigh area
-                                    to maintain
-                                    transmission powerline reliability and safety through established vegetation
-                                    management
-                                    practices.</li>
-                                <li>Utilize LIDAR and air patrol data to field verify and plan the removal or pruning of
-                                    high
-                                    priority threats to 230 kV and 115 kV transmission lines.</li>
-                                <li>Perform QA inspections on vegetation management work completed by tree contractors
-                                    and report
-                                    findings to Duke Energy.</li>
-                                <li>Complete safety observations on tree crews and report findings to Duke Energy to
-                                    insure
-                                    compliance with standards such as OSHA and ANSI Z133 Safety Standards.</li>
-                                <li>Plan bucket and climbing tree work in sensitive residential areas and contact
-                                    property owners to
-                                    inform them of the tree work to occur along the transmission line ROW.</li>
-                                <li>Respond to customer complaints and make site visits to complete tree risk
-                                    assessments and
-                                    determine if there is currently a threat to the transmission lines.</li>
-
-                                <li>Issue tree work to tree contractors and work directly with General Foreman to assist
-                                    with
-                                    property owner disputes, access issues, etc.</li>
-
-                            </ul>
-                        </div>
-                        <div>
-                            <h6 class="font-weight-bold">CN Utility Consulting-Raleigh, NC: Consulting Utility Forester
-                                (October 2020-January 2021)</h6>
-                            <ul class="font-weight-light">
-                                <li>Contracted by Duke Energy in the Raleigh area to inspect transmission powerline
-                                    right-of-ways
-                                    for danger trees within ROW and buffer zone that could impact the high-voltage
-                                    lines.</li>
-                                <li>Work with team to flag ROW, measure tree heights, and mark hazard trees for removal.
-                                </li>
-                                <li>Utilize LIDAR data to assess areas with hazard trees and input data into
-                                    tablet based on
-                                    what is found in the field.</li>
-                                <li>Submit work plan to utility detailing the work to be performed and what method is recommended to complete the work.
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h6 class="font-weight-bold">Environmental Consultants Incorporated (ECI)-Truckee, CA:
-                                Consulting Utility Forester (May 2019-August 2020)</h6>
-                            <ul class="font-weight-light">
-                                <li>Contracted by Liberty Utilities-Lake Tahoe to work alongside vegetation management
-                                    department to
-                                    maintain compliance with California line clearance regulations.</li>
-                                <li>Inspect high-voltage power lines and add trees to Inframap GIS program for trimming
-                                    or removal
-                                    to maintain compliance with state law, and select best trim type to obtain clearance
-                                    while
-                                    maintaining good tree health.</li>
-                                <li>Mark dead trees that could impact power lines under CEMA program to prevent
-                                    potential arcing or
-                                    line damage that could ignite wildfires.</li>
-                                <li>Communicate with Liberty Utility customers to inform them of trees out of
-                                    compliance, and obtain
-                                    written permission to remove such trees.</li>
-                                <li>Train new employees on line inspection standards and data entry procedures.</li>
-                                <li>Identify tree species in the Lake Tahoe Basin, and understand signs of poor tree
-                                    architecture or
-                                    health.</li>
-                                <li>Use rangefinder and DBH tape to measure height, distance from lines, and size class
-                                    of trees
-                                    that are found to be a threat to high-voltage lines.</li>
-                                <li>Work in inclement weather including rain, snow, and ice and hike long distances
-                                    cross-country to
-                                    complete line inspections.</li>
-                                <li>Understand components of utility power lines and maintain Minimum Approach Distances
-                                    required
-                                    for different line voltages.</li>
-                            </ul>
-                        </div>
-                        <a target="_blank" href="{% url 'portfolio:resume_pdf' %}">Download PDF (Full Resume)</a>
+    <div class="container-fluid p-2 pb-lg-5">
+        <div class="col-12 col-md-11 col-lg-10 mx-auto" id="resume">
+            <header class="py-4 px-4 text-white rounded-top">
+                <div class="row justify-content-between align-items-start">
+                    <div class="ml-2">
+                        <h1 class="display-4">Robert Beazley</h1>
+                        <h3>Software Developer</h3>
 
                     </div>
-                </div>
-                <hr>
-            </div>
-            <div class="mt-4 mb-4">
-                <div class="row d-flex flex-row justify-content-between">
-                    <div class="col-md-3">
-                        <h4><em>Education</em></h4>
-                    </div>
-                    <div class="col-md-9 text-left">
-                        <h5 class="fw-bold">North Carolina State University (2012-2016)</h5>
-                        <p>B.S. in Fisheries, Wildlife, and Conservation Biology-Fisheries Concentration</p>
+                    <div class="mr-2 mt-2">
+                        <ul class="list-unstyled">
+                            <li class="">Chapel Hill, NC</li>
+                            <li>robertbeazley18@gmail.com</li>
+                            <li>(704) 880-0586</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-        </main>
+            </header>
+            <main class="p-4 rounded-bottom">
+                <div class="">
+                    <div class="row d-flex flex-row justify-content-between ">
+                        <div class="col-md-3">
+                            <h4><em>Profile</em></h4>
+                        </div>
+                        <div class="col-md-9 text-left">
+                            <p>Experienced professional making career transition into software development. Passion for
+                                web
+                                development with excellent problem solving skills and resourcefulness. Proven ability to
+                                drive success and lead a team. Background in environmental compliance and utility
+                                vegetation
+                                management with highly effective written and oral communication skills.
+                            </p>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="mt-4">
+                    <div class="row justify-content-between">
+                        <div class="col-md-3">
+                            <h4><em>Skills</em></h4>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="row align-items-start">
+                                <div class="col-3 col-md-2 skills">
+                                    <ul class="list-unstyled">
+                                        <li>Python</li>
+                                        <li>Django</li>
+                                        <li>CSS</li>
+                                        <li>HTML</li>
+                                </div>
+                                <div class="col-3 col-md-2 skills">
+                                    <ul class="list-unstyled">
+                                        <li>Bootstrap</li>
+                                        <li>SQLite</li>
+                                        <li>Git</li>
+                                        <li>GitHub</li>
+                                    </ul>
+                                </div>
+                                <div class="col-3 col-md-2 skills">
+                                    <ul class="list-unstyled">
+                                        <li>Heroku</li>
+                                        <li>Powershell</li>
+                                        <li>VS Code</li>
+                                        <li>Javascript</li>
+                                    </ul>
+                                </div>
+                                <div class="col-3 col-md-2 skills">
+                                    <ul class="list-unstyled">
+                                        <li>Pandas</li>
+                                        <li>Selenium</li>
+                                        <li>Flask</li>
+                                        <li>AWS S3</li>
+                                    </ul>
+                                </div>
+                                <div class="col-3 col-md-2 skills">
+                                    <ul class="list-unstyled">
+                                        <li>GIS</li>
+                                        <li>Teams</li>
+                                        <li>Excel</li>
+                                        <li>Word</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+
+                <div class="mt-4">
+                    <div class="row d-flex flex-row justify-content-between">
+                        <div class="col-md-3">
+                            <h4><em>Work Experience</em></h4>
+                        </div>
+                        <div class="col-md-9 text-left pr-2">
+                            <div>
+                                <h6>Freelance Software Development (November 2021-Present)</h6>
+                                <ul>
+                                    <li>Create and launch a functional and aesthetically pleasing web application for
+                                        client
+                                        utilizing Python, Django, HTML, CSS, Bootstrap, and Heroku.</li>
+                                    <li>Utilize frontend web development skills to add additional features to website,
+                                        such
+                                        as user managed photo galleries and email communication abilities for site
+                                        visitors.
+                                    </li>
+                                    <li>Optimize application for a wide range of screen sizes, including mobile.</li>
+                                    <li>Troubleshoot bugs or site issues reported by client and implement fixes within
+                                        code
+                                        base.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h6>Environmental Consultants Incorporated (ECI)-Raleigh, NC: Contract Forester (July
+                                    2021-Present)</h6>
+                                <ul>
+                                    <li>Inspect tree trimming and tree removal work on Duke Energy distribution lines in
+                                        the
+                                        Raleigh/Cary area in order to maintain grid reliability and safety.
+                                    </li>
+                                    <li>Communicate with customers and tree contractors to ensure work is completed in
+                                        compliance with Duke Energy’s specifications and to the satisfaction of property
+                                        owners.
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h6>Curated: Ski Expert (October 2021-Present)</h6>
+                                <ul>
+                                    <li>Utilize communication skills and sales experience to sell ski gear to customers
+                                        with
+                                        Curated.com’s online platform to create personalized gear recommendations based
+                                        on a
+                                        person’s skill level, budget, and other individual needs.
+                                    </li>
+                                    <li>Continuously follow-up with customers to provide support and assist with any new
+                                        gear requirements or customer service related issues.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h6>CN Utility Consulting-Raleigh, NC: Contract Forester (October 2020-July 2021)
+                                </h6>
+                                <ul>
+                                    <li>Work directly with Duke Energy in the Raleigh area to maintain transmission
+                                        powerline reliability and safety through established vegetation management
+                                        practices.</li>
+                                    <li>Effectively communicate tree work to property owners and address any concerns
+                                        using
+                                        arboricultural and utility knowledge.
+                                    </li>
+                                    <li>Maintain quality of work and safety culture through tree crew oversight and QA
+                                        inspections.
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h6>Environmental Consultants Incorporated (ECI)-Truckee, CA:
+                                    Consulting Utility Forester (May 2019-August 2020)</h6>
+                                <ul>
+                                    <li>Contracted by Liberty Utilities-Lake Tahoe to work alongside the vegetation
+                                        management department to maintain compliance with line clearance regulations.
+                                    </li>
+                                    <li>Improve grid reliability and safety through identification of trees that pose a
+                                        risk
+                                        to high-voltage lines.
+                                    </li>
+                                    <li>Effectively communicate with customers and address any concerns regarding tree
+                                        work
+                                        to be completed.
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h6>Phillips and Jordan-Raleigh, NC: Environmental Coordinator (May 2017-October 2017)
+                                </h6>
+                                <ul>
+                                    <li>Monitored site restoration progress on transmission line projects, and created
+                                        detailed reports that included the appropriate NPDES forms and photo
+                                        documentation.
+                                    </li>
+                                    <li>Worked with a team of contractors and utility representatives to comply with
+                                        line
+                                        build specifications and maintain BMPs.
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="accordion" id="accordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header rounded-3" id="headingOne">
+                                        <button class="accordion-button text-light"
+                                            style="background-color: rgb(101, 102, 101, 0.904);" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                            Other Work Experience
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse"
+                                        aria-labelledby="headingOne" data-bs-parent="#accordion">
+                                        <div class="accordion-body text-light rounded-bottom"
+                                            style="background-color: rgb(101, 102, 101);">
+                                            <div>
+                                                <h6>Alpine Meadows Ski Resort-Truckee, CA: Ski Instructor (February
+                                                    2019-June 2019)</h6>
+                                                <ul>
+                                                    <li>Taught adults and children the fundamentals of skiing through
+                                                        methodical progression.
+                                                    </li>
+                                                    <li>Effectively communicated techniques and skills in a group
+                                                        setting
+                                                        and provide individual feedback to clients.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h6>Black Tie Ski Rental Delivery-Truckee, CA: Technician (November
+                                                    2018-April 2019)</h6>
+                                                <ul>
+                                                    <li>Deliver ski and snowboard equipment to guests and fit them with
+                                                        proper boots and skis based on skill level or skiing style.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h6>Alpenrose Gardenscapes-Vail, CO: Technician (April 2018-October
+                                                    2018)
+                                                </h6>
+                                                <ul>
+                                                    <li>Worked with a team to create landscape features such as
+                                                        flagstone
+                                                        walkways and decorative flower beds and performed regular
+                                                        maintenance on yards.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h6>Vail Lacrosse Club-Vail, CO: U12 Coach (Spring 2018)
+                                                </h6>
+                                                <ul>
+                                                    <li>Taught players the fundamentals of lacrosse and emphasized the
+                                                        importance of teamwork and sportsmanship throughout the season.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h6>Vail Ski Resort-Vail, CO: Mountain Safety (November 2017-April 2018)
+                                                </h6>
+                                                <ul>
+                                                    <li>Interacted with guests to educate them on how to ski or ride in
+                                                        the
+                                                        safest way possible.
+                                                    </li>
+                                                    <li>Worked with a team set up preventative measures around the
+                                                        mountain
+                                                        to help reduce accidents.
+                                                    </li>
+                                                    <li>Helped host safety related events to raise awareness of safety
+                                                        on
+                                                        the mountain.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <h6>Rowboat Dock and Dredge-Mooresville, NC: Laborer (Summer 2012, 2013)
+                                                </h6>
+                                                <ul>
+                                                    <li>Worked with a team to frame and deck docks.
+                                                    </li>
+                                                    <li>Operated forklift, skid-steer, and other forms of heavy
+                                                        equipment.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <a target="_blank" href="{% url 'portfolio:resume_pdf' %}">Download PDF (Full Resume)</a>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="mt-4 mb-4">
+                    <div class="row d-flex flex-row justify-content-between">
+                        <div class="col-md-3">
+                            <h4><em>Education</em></h4>
+                        </div>
+                        <div class="col-md-9 text-left">
+                            <h5 class="fw-bold">North Carolina State University (2012-2016)</h5>
+                            <p>B.S. in Fisheries, Wildlife, and Conservation Biology-Fisheries Concentration</p>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="mt-4 mb-4">
+                    <div class="row d-flex flex-row justify-content-between">
+                        <div class="col-md-3">
+                            <h4><em>Scholarships and Awards</em></h4>
+                        </div>
+                        <div class="col-md-9 text-left">
+                            <ul class="list-unstyled">
+                                <li class="mb-1">Chancellor’s Leadership Scholarship (2012)
+                                </li>
+                                <li>Eagle Scout (2009)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
     </div>
 </body>
 {% endblock %}

@@ -21,6 +21,7 @@
             background-attachment: fixed;
             background-size: cover;
             background-repeat: no-repeat;
+            font-family: 'Nunito Sans', sans-serif;
         }
 
         p {
@@ -46,8 +47,17 @@
         .social-link {
             width: auto;
             height: 35px;
+        }
 
+        .dropdown-menu {
+            background-color: rgba(101, 102, 101, 0.712);
+            border-color: white;
+        }
+
+        .dropdown-item {
+            font-size: 16px;
             
+            font-family: 'Nunito Sans', sans-serif;
         }
     </style>
 
@@ -74,7 +84,7 @@
                         data-bs-toggle="dropdown" aria-expanded="false">Projects</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                         {% for project in project_list %}
-                        <li><a class="dropdown-item" href="{% url 'portfolio:detail' project.id %}">{{ project.title }}</a></li>
+                        <li><a class="dropdown-item text-light" href="{% url 'portfolio:detail' project.id %}">{{ project.title }}</a></li>
                         {% endfor %}
                     </ul>
                 </li>
