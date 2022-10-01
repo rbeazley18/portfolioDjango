@@ -47,7 +47,11 @@
         }
 
         p {
-            font-size: 20px;
+            font-size: 18px;
+        }
+
+        .subtitle {
+            font-size: 22px;
         }
 
         @media (max-width: 1000px) {
@@ -116,7 +120,7 @@
                     {% endif %}
                     <div class="card-body d-flex flex-column justify-content-between" style="height: fit-content;">
                         <div>
-                            <h3 class="card-title text-light fw-bold">{{ project.title }}</h3>
+                            <h4 class="card-title text-light fw-bold">{{ project.title }}</h4>
                             <p class="card-text text-light">{{ project.snippet | safe }}</p>
                         </div>
                         <div class="mt-2">
