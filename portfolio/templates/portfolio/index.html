@@ -51,7 +51,7 @@
         }
 
         .subtitle {
-            font-size: 22px;
+            font-size: 24px;
         }
 
         @media (max-width: 1000px) {
@@ -73,8 +73,8 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-7 col-11">
                     <div class="rounded mt-4 text-light py-4 jumbotron" id="title">
-                        <h1 class="display-1 fw-bold">Robert Beazley</h1>
-                        <p class="lead subtitle">Frontend software developer with Python and Django experience.</p>
+                        <h1 class="display-1">Robert Beazley</h1>
+                        <p class="subtitle">Frontend software developer</p>
                         <!-- <a class="btn text-light shadow-lg" href="#" id="site_link" role="button">Contact Me</a> -->
                     </div>
                 </div>
@@ -82,10 +82,13 @@
                     <div id="carouselExampleControls" class="carousel slide mt-4" data-bs-ride="carousel">
                         <div class="carousel-inner mx-auto">
                             <div class="carousel-item active">
-                                <img src="{% static 'python-logo-only.svg' %}" class="logos d-block" alt="">
+                                <img src="{% static 'python-logo-only.svg' %}" class="logos d-block mt-2" alt="">
                             </div>
                             <div class="carousel-item">
-                                <img src="{% static 'django-logo-positive.svg' %}" class="logos d-block" alt="">
+                                <img src="{% static 'js.svg' %}" class="logos d-block" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{% static 'django-logo-positive.svg' %}" class="logos d-block mt-4" alt="">
                             </div>
                             <div class="carousel-item">
                                 <img src="{% static 'HTML5_Logo.svg' %}" class="logos d-block" alt="">
@@ -100,7 +103,7 @@
                                 <img src="{% static 'pandas_secondary_white.svg' %}" class="logos d-block" alt="">
                             </div>
                             <div class="carousel-item">
-                                <img src="{% static 'Git-Logo-White.svg' %}" class="logos d-block" alt="">
+                                <img src="{% static 'Git-Logo-White.svg' %}" class="logos d-block mt-4" alt="">
                             </div>
                         </div>
                     </div>
